@@ -13,6 +13,39 @@
 </head>
 <!--inizio body-->
 <body>
+    <div class="container" id="app">
+        <div class="inner-container">
+
+            <!--header-->
+            <header class="header">
+                <h1 class="title"> My ToDo List </h1>
+            </header>
+            <!--header-->
+
+            <!--inizio main-->
+            <main>
+                <div class="add-to-do">
+                    <div class="input">
+                        <input type="text" placeholder="Add Todo">
+                        <i class="fas fa-plus-circle"></i>
+                    </div>
+                </div>
+                <div class="todo-list">
+                    <ul>
+                        <li v-for="todo in todos">
+                            <div class="todo-text">
+                                <i class="far" :class="(todo.done == false) ? 'fa-square' : 'fa-check-square'"
+                                    @click="todo.done = !todo.done"></i>
+                                <h3 :class="(todo.done == true) ? 'line-through' : ''" @click="todo.done = !todo.done"></h3>
+                            </div>
+                            <i @click="removeTodo(index)" class="far fa-times-circle"></i>
+                        </li>
+                    </ul>
+                </div>
+            </main>
+            <!--fine main-->
+        </div>
+    </div>
     <!--script-->
     <script src="/js/script.js"></script>
 </body>
