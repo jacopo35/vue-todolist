@@ -18,13 +18,13 @@ const app = new Vue(
     {
         el: '#app',
         data: {//dati da utilizzare
-            todos: [
+            todos: [//nuovo ToDo
                 {
-                    text: 'spesa',
+                    text: 'Chiamare Riccardo',
                     done: false
                 },
                 {
-                    text: 'cena',
+                    text: 'Cena con Ale',
                     done: false
                 },
                 {
@@ -37,9 +37,19 @@ const app = new Vue(
                 }
             ]
         },
-        methods: {//
-            removeTodo: function (index) {
-                this.todos.splice(index, 1);
+        methods: {
+            addTodo: function () {//faggiungo un todo con una funzione
+                if (this.newTodo.length != 0) { 
+                    let element = {//creo un oggetto
+                        text: this.newTodo,
+                        done: false
+                    }
+                    this.todos.unshift(element);
+                    this.newTodo = '';
+                }
+            },
+             removeTodo: function (index) {
+                         this.todos.splice(index, 1);
             }
         }
     }
